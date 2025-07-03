@@ -40,7 +40,7 @@ export default function CreateProfile({ onComplete }) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-      <div className="relative w-[400px]">
+      <div className="relative w-full">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="w-full h-10 px-4 text-left bg-neutral-800 text-white border border-neutral-600 rounded-full flex items-center justify-between hover:border-neutral-500"
@@ -69,7 +69,7 @@ export default function CreateProfile({ onComplete }) {
   };
 
   const Row = ({ label, input, hint }) => (
-    <div className="grid grid-cols-[180px_1fr] items-start gap-2">
+    <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr] items-start gap-2 sm:gap-4 w-full">
       <label className="text-white text-sm pt-2">{label}</label>
       <div className="flex flex-col gap-1">
         {input}
@@ -79,11 +79,11 @@ export default function CreateProfile({ onComplete }) {
   );
 
   return (
-    <div className="w-full max-w-6xl mx-auto mt-4">
-      <div className="bg-[#0B0B0B] border border-neutral-700 rounded-xl px-8 py-5 w-[1000px]">
-        <div className="grid grid-cols-[1fr_auto] items-start gap-24">
+    <div className="w-full max-w-6xl mx-auto mt-4 px-4 sm:px-6">
+      <div className="bg-[#0B0B0B] border border-neutral-700 rounded-xl px-6 sm:px-8 py-6 w-full">
+        <div className="flex flex-col sm:grid sm:grid-cols-[1fr_auto] items-start gap-10 sm:gap-24">
           {/* Left: Form Section */}
-          <div className="space-y-4">
+          <div className="space-y-4 w-full">
             <Row
               label="Creator Name"
               input={
@@ -112,7 +112,7 @@ export default function CreateProfile({ onComplete }) {
                   }
                   placeholder="Upto 300 characters"
                   maxLength={300}
-                  className="w-[400px] h-10 px-4 py-2 text-sm bg-neutral-800 text-white border border-neutral-600 rounded-full placeholder-neutral-400 resize-none"
+                  className="w-full h-10 px-4 py-2 text-sm bg-neutral-800 text-white border border-neutral-600 rounded-full placeholder-neutral-400 resize-none"
                 />
               }
             />
@@ -120,8 +120,8 @@ export default function CreateProfile({ onComplete }) {
             <Row
               label="Tags"
               input={
-                <div className="flex items-center gap-2">
-                  <div className="w-[280px] h-10 px-4 flex items-center bg-neutral-800 border border-neutral-600 rounded-full text-neutral-400 text-sm">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <div className="flex-1 min-w-[150px] h-10 px-4 flex items-center bg-neutral-800 border border-neutral-600 rounded-full text-neutral-400 text-sm">
                     Add tags...
                   </div>
                   <button className="w-10 h-10 bg-neutral-700 border border-neutral-600 rounded-full flex items-center justify-center hover:bg-neutral-600">
@@ -195,7 +195,7 @@ export default function CreateProfile({ onComplete }) {
           </div>
 
           {/* Right: Profile Image Upload */}
-          <div className="flex flex-col items-center justify-start gap-4 mt-[2px]">
+          <div className="flex flex-col items-center sm:items-start gap-4 mt-6 sm:mt-[2px] w-full sm:w-auto">
             <div className="relative">
               <input
                 type="file"
@@ -203,7 +203,7 @@ export default function CreateProfile({ onComplete }) {
                 onChange={handleImageUpload}
                 className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
               />
-              <div className="w-44 h-44 rounded-full border border-neutral-600 bg-neutral-800 flex items-center justify-center overflow-hidden">
+              <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-neutral-600 bg-neutral-800 flex items-center justify-center overflow-hidden">
                 {imagePreview ? (
                   <img
                     src={imagePreview}
@@ -217,7 +217,7 @@ export default function CreateProfile({ onComplete }) {
                 )}
               </div>
             </div>
-            <button className="w-44 py-2 bg-neutral-800 border border-neutral-600 rounded-full text-white text-sm hover:bg-neutral-700 transition">
+            <button className="w-full sm:w-44 py-2 bg-neutral-800 border border-neutral-600 rounded-full text-white text-sm hover:bg-neutral-700 transition">
               Upload Picture
             </button>
           </div>

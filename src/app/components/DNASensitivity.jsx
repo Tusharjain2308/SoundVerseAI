@@ -10,7 +10,7 @@ export default function DNASensitivity({ onComplete, onSkip }) {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto mt-4 sm:mt-8">
+    <div className="w-full max-w-4xl mx-auto mt-4 sm:mt-8 px-4 sm:px-6">
       <div className="bg-[#0B0B0B] rounded-xl px-6 py-8 border border-neutral-700">
         {/* Title & Description */}
         <h2 className="text-white text-[22px] font-light mb-2">
@@ -22,11 +22,9 @@ export default function DNASensitivity({ onComplete, onSkip }) {
         </p>
 
         {/* Slider */}
-        {/* Slider */}
         <div className="mb-10">
-          {/* Slider container with reduced width and vertical spacing */}
           <div className="relative flex justify-center mt-6">
-            <div className="w-[80%]">
+            <div className="w-full sm:w-[80%]">
               <input
                 type="range"
                 min="1"
@@ -65,34 +63,36 @@ export default function DNASensitivity({ onComplete, onSkip }) {
           `}</style>
 
           {/* Labels under slider */}
-          <div className="flex justify-between mt-5 text-sm">
-            <div className="text-left">
+          <div className="flex flex-col sm:flex-row justify-between mt-5 text-sm gap-4 sm:gap-0 text-center sm:text-left">
+            <div>
               <div className="text-white font-medium">Least Sensitive</div>
               <div className="text-neutral-500 text-xs">
                 (Generic Genre DNAs)
               </div>
             </div>
-            <div className="text-center text-neutral-400 font-medium">
+            <div className="text-neutral-400 font-medium">
               Recommended
             </div>
-            <div className="text-right">
+            <div>
               <div className="text-white font-medium">Highly Sensitive</div>
-              <div className="text-neutral-500 text-xs">(Niche Genre DNAs)</div>
+              <div className="text-neutral-500 text-xs">
+                (Niche Genre DNAs)
+              </div>
             </div>
           </div>
         </div>
 
         {/* Buttons */}
-        <div className="flex justify-center gap-6 pt-4">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
           <button
             onClick={() => onComplete?.(sensitivity)}
-            className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-200"
+            className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-200 w-full sm:w-auto"
           >
             Set Sensitivity
           </button>
           <button
             onClick={onSkip}
-            className="text-white px-8 py-3 rounded-full font-medium hover:text-neutral-300"
+            className="text-white px-8 py-3 rounded-full font-medium hover:text-neutral-300 w-full sm:w-auto"
           >
             Skip
           </button>
